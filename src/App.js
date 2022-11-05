@@ -9,10 +9,12 @@ import { fetchAuthCurrent, selectIsAuth } from "./redux/slices/auth";
 
 function App() {
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const isAuth = useSelector(selectIsAuth);
 
   React.useEffect(() => {
     dispatch(fetchAuthCurrent());
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -22,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts/:id" element={<FullPost />} />
+          <Route path="/posts/:id/edit" element={<AddPost />} />
           <Route path="/add-post" element={<AddPost />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
